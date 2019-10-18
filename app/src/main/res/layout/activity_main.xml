@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    style="@style/MainActivityRootLayout">
+
+    <LinearLayout
+        style="@style/MainActivityTitleLayout" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" >
+
+            <ImageView
+                android:layout_marginRight="10px"
+                android:src="@mipmap/pic_student"
+                style="@style/IconImage" />
+
+            <TextView
+                android:id="@+id/text_name"
+                style="@style/TitleFont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_weight="1">
+
+            <Button
+                android:background="@mipmap/pic_refresh"
+                android:id="@+id/btn_refresh"
+                android:layout_marginRight="20px"
+                style="@style/IconImage" />
+
+            <Button
+                android:background="@mipmap/pic_exit"
+                android:id="@+id/btn_exit"
+                style="@style/IconImage" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250pt"
+        android:orientation="vertical"
+        style="@style/LoginActivityRootLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/layout_practice"
+                style="@style/IconButtonLayout">
+
+                <ImageView
+                    android:layout_width="24pt"
+                    android:layout_height="24pt"
+                    android:src="@mipmap/pic_practice"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="练习"
+                    style="@style/RegularFont" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/layout_test"
+                style="@style/IconButtonLayout">
+
+                <ImageView
+                    android:layout_width="24pt"
+                    android:layout_height="24pt"
+                    android:src="@mipmap/pic_test"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="自测"
+                    style="@style/RegularFont" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/layout_mistake_book"
+                style="@style/IconButtonLayout">
+
+                <ImageView
+                    android:layout_width="24pt"
+                    android:layout_height="24pt"
+                    android:src="@mipmap/pic_mistake"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="错题本"
+                    style="@style/RegularFont" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

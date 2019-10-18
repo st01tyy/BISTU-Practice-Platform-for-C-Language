@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.bistupracticeplatformforclanguage.module.LoginForm;
 import com.example.bistupracticeplatformforclanguage.module.Student;
@@ -62,6 +63,13 @@ public class LoginActivity extends AppCompatActivity
         //向服务器验证登录
         LoginTask loginTask = new LoginTask(this);
         loginTask.execute(new LoginForm(id, pw));
-        return;
     }
+
+    //若登录失败
+    public void onLoginFail()
+    {
+        TextView text_warning = (TextView) findViewById(R.id.text_warning);
+        text_warning.setVisibility(View.VISIBLE);
+    }
+
 }

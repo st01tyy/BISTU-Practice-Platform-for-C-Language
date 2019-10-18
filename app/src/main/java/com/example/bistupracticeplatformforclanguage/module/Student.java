@@ -1,6 +1,8 @@
 package com.example.bistupracticeplatformforclanguage.module;
 
-public class Student
+import java.io.Serializable;
+
+public class Student implements Serializable
 {
     private String id;
     private String studentId;

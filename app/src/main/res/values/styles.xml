@@ -20,6 +20,19 @@
         <item name="android:background">@color/white</item>
     </style>
 
+    <!-- 主页面底层布局 -->
+    <style name="MainActivityRootLayout" parent="RootLayout">
+        <item name="android:gravity">left|top</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!-- 主页面标题布局 -->
+    <style name="MainActivityTitleLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+    </style>
+
     <!-- 登录页面输入框 -->
     <style name="LoginActivityEditText" parent="RegularFont">
         <item name="android:layout_width">match_parent</item>
@@ -29,6 +42,7 @@
         <item name="android:background">@drawable/edit_text_stroke</item>
     </style>
 
+    <!-- 登录页面按钮样式 -->
     <style name="LoginActivityButton" parent="RegularFont">
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@drawable/blue_round_corner</item>
@@ -54,6 +68,19 @@
     <style name="SmallFont">
         <item name="android:textSize">7pt</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- 图片样式 -->
+    <style name="IconImage">
+        <item name="android:layout_width">16pt</item>
+        <item name="android:layout_height">16pt</item>
+    </style>
+
+    <!-- 图片按钮组合样式 -->
+    <style name="IconButtonLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
     </style>
 
 </resources>
