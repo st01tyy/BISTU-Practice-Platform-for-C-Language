@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/LoginActivityRootLayout"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="230pt"
+        android:orientation="vertical"
+        style="@style/LoginActivityRootLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            style="@style/LoginActivityRootLayout" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录"
+                style="@style/TitleFont"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/LoginActivityRootLayout" >
+
+            <EditText
+                android:hint="账号："
+                android:inputType="text"
+                android:id="@+id/input_id"
+                style="@style/LoginActivityEditText"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="top"
+            style="@style/LoginActivityRootLayout" >
+
+            <EditText
+                android:hint="密码："
+                android:inputType="textPassword"
+                android:id="@+id/input_pw"
+                style="@style/LoginActivityEditText" />
+
+            <TextView
+                android:id="@+id/text_warning"
+                style="@style/RegularFont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="15px"
+                android:text="用户名或密码错误，请重试！"
+                android:textColor="@color/red"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="left|center_vertical"
+            style="@style/LoginActivityRootLayout" >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下次自动登录"
+                android:id="@+id/check_auto_login"
+                style="@style/SmallFont"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            style="@style/LoginActivityRootLayout" >
+            <Button
+                android:layout_height="wrap_content"
+                android:text="登录"
+                android:id="@+id/btn_login"
+                style="@style/LoginActivityButton" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
