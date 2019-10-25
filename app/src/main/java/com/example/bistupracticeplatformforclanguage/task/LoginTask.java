@@ -72,6 +72,10 @@ public class LoginTask extends AsyncTask<LoginForm, Integer, Student>
                 Gson gson = new Gson();
                 student = gson.fromJson(jsonObject.getString("data"), Student.class);
             }
+
+            //判断是否需要保存登录信息
+            if(student != null && loginForms[0].isAutoLogin())
+                loginActivity.saveAccount(student.getStudentId(), student.getPassword());
         }
         catch(Exception e)
         {
