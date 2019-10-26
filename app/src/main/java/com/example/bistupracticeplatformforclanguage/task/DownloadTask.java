@@ -34,7 +34,7 @@ public class DownloadTask extends AsyncTask<Void, Integer, List<QuestionPrototyp
     {
         progressDialog = new ProgressDialog(mainActivity);
         progressDialog.setCancelable(false);
-        progressDialog.setTitle("正在更新题库");
+        progressDialog.setTitle("正在下载题库...");
         progressDialog.show();
     }
 
@@ -101,7 +101,8 @@ public class DownloadTask extends AsyncTask<Void, Integer, List<QuestionPrototyp
             Toast.makeText(mainActivity, "更新题库失败，请重试", Toast.LENGTH_LONG).show();
         else
         {
-
+            UpdateTask updateTask = new UpdateTask(mainActivity);
+            updateTask.execute(questionPrototypes);
         }
     }
 }
