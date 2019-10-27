@@ -26,6 +26,27 @@
         <item name="android:background">@color/white</item>
     </style>
 
+    <!-- 答题界面底层布局 -->
+    <style name="QuestionActivityRootLayout" parent="RootLayout">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!-- 答题页面底部状态栏布局 -->
+    <style name="QuestionActivityBottomLayout" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- 答题页面选项布局 -->
+    <style name="QuestionActivitySelectionLayout" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
     <!-- 主页面标题布局 -->
     <style name="MainActivityTitleLayout">
         <item name="android:layout_width">match_parent</item>

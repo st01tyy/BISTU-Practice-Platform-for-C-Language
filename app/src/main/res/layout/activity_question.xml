@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".QuestionActivity"
+    style="@style/QuestionActivityRootLayout">
+
+    <LinearLayout
+        style="@style/MainActivityTitleLayout" >
+
+        <Button
+            android:background="@mipmap/pic_back"
+            android:id="@+id/btn_back"
+            android:layout_marginRight="10px"
+            style="@style/IconImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_question_activity_title"
+            android:text="练习"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            style="@style/TitleFont" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical" >
+            <Button
+                android:background="@mipmap/pic_report"
+                android:id="@+id/btn_report"
+                style="@style/IconImage" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/QuestionActivitySelectionLayout" >
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A. "
+                android:id="@+id/check_selection_a"
+                style="@style/RegularFont" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="for(int i = 0; i <=n ;i++)"
+                android:scrollbars="horizontal"
+                style="@style/RegularFont" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/QuestionActivitySelectionLayout" >
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/QuestionActivitySelectionLayout" >
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/QuestionActivitySelectionLayout" >
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/QuestionActivityBottomLayout" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上一题"
+            android:id="@+id/btn_previous_question"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            style="@style/RegularFont" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/10"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            style="@style/RegularFont" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一题"
+            android:id="@+id/btn_next_question"
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="15px"
+            style="@style/RegularFont" />
+
+    </LinearLayout>
+
+</LinearLayout>
