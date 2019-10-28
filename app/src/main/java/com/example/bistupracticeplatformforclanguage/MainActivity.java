@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.bistupracticeplatformforclanguage.module.Student;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity
 {
     private Button btn_refresh;
     private Button btn_exit;
+    private LinearLayout layout_practice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity
         //获取控件
         btn_refresh = (Button) findViewById(R.id.btn_refresh);
         btn_exit = (Button) findViewById(R.id.btn_exit);
+        layout_practice = (LinearLayout) findViewById(R.id.layout_practice);
 
         //初始化
         TextView text_name = (TextView) findViewById(R.id.text_name);
@@ -62,6 +65,15 @@ public class MainActivity extends AppCompatActivity
             {
                 DownloadTask downloadTask = new DownloadTask(MainActivity.this);
                 downloadTask.execute();
+            }
+        });
+        layout_practice.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+                startActivity(intent);
             }
         });
     }
