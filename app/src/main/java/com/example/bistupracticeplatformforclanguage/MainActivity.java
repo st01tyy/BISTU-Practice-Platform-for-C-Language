@@ -17,6 +17,7 @@ import com.example.bistupracticeplatformforclanguage.module.Student;
 import com.example.bistupracticeplatformforclanguage.task.DownloadTask;
 
 import java.io.File;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -72,10 +73,22 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+                Intent intent = new Intent(MainActivity.this, PreparePracticeActivity.class);
                 startActivity(intent);
             }
         });
+
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/c_practice/1.txt");
+        if(!file.exists())
+        {
+            DownloadTask downloadTask = new DownloadTask(MainActivity.this);
+            downloadTask.execute();
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

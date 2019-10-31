@@ -56,6 +56,14 @@
         <item name="android:gravity">left|center_vertical</item>
     </style>
 
+    <!-- 答题页面判题布局 -->
+    <style name="QuestionActivityJudgeLayout" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
     <!-- 主页面标题布局 -->
     <style name="MainActivityTitleLayout">
         <item name="android:layout_width">match_parent</item>

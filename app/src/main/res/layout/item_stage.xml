@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15px">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left|center_vertical"
+        android:layout_marginBottom="5px">
+
+        <Button
+            android:layout_width="16pt"
+            android:layout_height="16pt"
+            android:id="@+id/btn_bend"
+            android:layout_marginRight="5px"
+            android:background="@mipmap/pic_bend"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_stage"
+            android:layout_marginLeft="5px"
+            android:text="阶段一"
+            android:textStyle="bold"
+            style="@style/RegularFont" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/question_list"
+        android:layout_marginTop="5px"
+        android:layout_marginLeft="16pt"/>
+
+</LinearLayout>

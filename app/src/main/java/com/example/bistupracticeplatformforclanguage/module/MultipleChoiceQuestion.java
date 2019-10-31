@@ -2,7 +2,9 @@ package com.example.bistupracticeplatformforclanguage.module;
 
 import org.litepal.crud.LitePalSupport;
 
-public class MultipleChoiceQuestion extends LitePalSupport
+import java.io.Serializable;
+
+public class MultipleChoiceQuestion extends LitePalSupport implements Serializable
 {
     private int questionId;
     private String description;

@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="15px"
-                android:text="用户名或密码错误。\n请重试，并确保已连接至校园网！"
+                android:text="登录失败。\n请确保用户名和密码输入正确，并已连接至校园网！"
                 android:textColor="@color/red"
                 android:visibility="invisible" />
 

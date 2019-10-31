@@ -118,9 +118,9 @@ public class UpdateTask extends AsyncTask<List<QuestionPrototype>, Integer, Bool
     {
         progressDialog.dismiss();
         if(aBoolean)
-            Toast.makeText(mainActivity, "true", Toast.LENGTH_LONG).show();
+            Toast.makeText(mainActivity, "更新成功", Toast.LENGTH_LONG).show();
         else
-            Toast.makeText(mainActivity, "false", Toast.LENGTH_LONG).show();
+            Toast.makeText(mainActivity, "更新失败", Toast.LENGTH_LONG).show();
     }
 
     private String[] function(String text)
