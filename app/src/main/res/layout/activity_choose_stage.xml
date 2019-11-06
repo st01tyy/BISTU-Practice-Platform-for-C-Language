@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChooseStageActivity"
+    style="@style/MainActivityRootLayout">
+
+    <LinearLayout
+        android:layout_marginBottom="10px"
+        style="@style/MainActivityTitleLayout" >
+
+        <Button
+            android:background="@mipmap/pic_back"
+            android:id="@+id/btn_back"
+            android:layout_marginRight="10px"
+            style="@style/IconImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_question_activity_title"
+            android:text="选择练习阶段"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            style="@style/TitleFont" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:id="@+id/stage_list"/>
+</LinearLayout>

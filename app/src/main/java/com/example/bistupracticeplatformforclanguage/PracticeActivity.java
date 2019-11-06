@@ -21,12 +21,8 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PracticeActivity extends AppCompatActivity {
-    private TextView text_questionId;
-    private TextView text_difficulty;
-    private TextView text_description;
-    private TextView text_selectionA;
-
+public class PracticeActivity extends CustomActivity
+{
     private String stage;
     private String answer = null;
     private int position = 0;
@@ -42,6 +38,7 @@ public class PracticeActivity extends AppCompatActivity {
         initialize();
     }
 
+    @Override
     public void updateAnswer(String ans)
     {
         if(ans == null)

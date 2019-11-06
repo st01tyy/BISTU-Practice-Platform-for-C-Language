@@ -9,11 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bistupracticeplatformforclanguage.ChooseStageActivity;
 import com.example.bistupracticeplatformforclanguage.PracticeActivity;
-import com.example.bistupracticeplatformforclanguage.PreparePracticeActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuestion;
 import com.example.bistupracticeplatformforclanguage.module.Stage;
@@ -27,9 +28,10 @@ import java.util.List;
 public class StageAdapter extends RecyclerView.Adapter<StageAdapter.ViewHolder>
 {
     private List<Stage> list;
-    private PreparePracticeActivity activity;
+    private ChooseStageActivity activity;
+    private String type;
 
-    public StageAdapter(List<String> nameList, PreparePracticeActivity activity)
+    public StageAdapter(List<String> nameList, ChooseStageActivity activity)
     {
         list = new ArrayList<>();
         for(String name : nameList)
@@ -37,6 +39,13 @@ public class StageAdapter extends RecyclerView.Adapter<StageAdapter.ViewHolder>
             list.add(new Stage(name));
         }
         this.activity = activity;
+        this.type = null;
+    }
+
+    public StageAdapter(List<String> nameList, ChooseStageActivity activity, String type)
+    {
+        this(nameList, activity);
+        this.type = type;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder
@@ -75,9 +84,18 @@ public class StageAdapter extends RecyclerView.Adapter<StageAdapter.ViewHolder>
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(activity, PracticeActivity.class);
-                intent.putExtra("stage", stage.getName());
-                activity.startActivity(intent);
+                Intent intent = null;
+                if(type != null && type.equals("自测"))   //跳转至自测
+                {
+
+                }
+                else    //跳转至练习
+                {
+                    intent = new Intent(activity, PracticeActivity.class);
+                    intent.putExtra("stage", stage.getName());
+                }
+                if(intent != null)  //跳转
+                    activity.startActivity(intent);
             }
         });
         holder.btn_bend.setOnClickListener(new View.OnClickListener()
@@ -85,54 +103,56 @@ public class StageAdapter extends RecyclerView.Adapter<StageAdapter.ViewHolder>
             @Override
             public void onClick(View view)
             {
-                if(stage.isBended())
+                if(type == null)    //只有练习模式才能展开二级菜单
                 {
-                    //获取题目名称列表
-                    List<Object> questionList = new ArrayList<>();
-
-                    //获取选择题
-                    long id = 1;
-                    MultipleChoiceQuestion multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
-                    while(multipleChoiceQuestion != null)
+                    if(stage.isBended())
                     {
-                        if(multipleChoiceQuestion.getStage().equals(stage.getName()))
-                            questionList.add(multipleChoiceQuestion);
-                        id++;
-                        multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
-                    }
+                        //获取题目名称列表
+                        List<Object> questionList = new ArrayList<>();
 
-                    //获取判断题
-                    id = 1;
-                    TrueFalseQuestion trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
-                    while(trueFalseQuestion != null)
+                        //获取选择题
+                        long id = 1;
+                        MultipleChoiceQuestion multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+                        while(multipleChoiceQuestion != null)
+                        {
+                            if(multipleChoiceQuestion.getStage().equals(stage.getName()))
+                                questionList.add(multipleChoiceQuestion);
+                            id++;
+                            multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+                        }
+
+                        //获取判断题
+                        id = 1;
+                        TrueFalseQuestion trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+                        while(trueFalseQuestion != null)
+                        {
+                            if(trueFalseQuestion.getStage().equals(stage.getName()))
+                                questionList.add(trueFalseQuestion);
+                            id++;
+                            trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+                        }
+
+                        Log.d("StageAdapter", Integer.toString(questionList.size()));
+
+                        QuestionAdapter questionAdapter = new QuestionAdapter(questionList, activity, stage.getName());
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+                        layoutManager.setOrientation(RecyclerView.VERTICAL);
+
+                        holder.questionList.setLayoutManager(layoutManager);
+                        holder.questionList.setAdapter(questionAdapter);
+
+                        holder.btn_bend.setBackgroundResource(R.mipmap.pic_not_bend);
+
+                        stage.setBended(false);
+                    }
+                    else
                     {
-                        if(trueFalseQuestion.getStage().equals(stage.getName()))
-                            questionList.add(trueFalseQuestion);
-                        id++;
-                        trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+                        holder.questionList.setAdapter(null);
+                        holder.btn_bend.setBackgroundResource(R.mipmap.pic_bend);
+
+                        stage.setBended(true);
                     }
-
-                    Log.d("StageAdapter", Integer.toString(questionList.size()));
-
-                    QuestionAdapter questionAdapter = new QuestionAdapter(questionList, activity, stage.getName());
-                    LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
-                    layoutManager.setOrientation(RecyclerView.VERTICAL);
-
-                    holder.questionList.setLayoutManager(layoutManager);
-                    holder.questionList.setAdapter(questionAdapter);
-
-                    holder.btn_bend.setBackgroundResource(R.mipmap.pic_not_bend);
-
-                    stage.setBended(false);
                 }
-                else
-                {
-                    holder.questionList.setAdapter(null);
-                    holder.btn_bend.setBackgroundResource(R.mipmap.pic_bend);
-
-                    stage.setBended(true);
-                }
-
             }
         });
     }

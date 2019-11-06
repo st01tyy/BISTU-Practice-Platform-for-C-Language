@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity
     private Button btn_refresh;
     private Button btn_exit;
     private LinearLayout layout_practice;
+    private LinearLayout layout_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity
         btn_refresh = (Button) findViewById(R.id.btn_refresh);
         btn_exit = (Button) findViewById(R.id.btn_exit);
         layout_practice = (LinearLayout) findViewById(R.id.layout_practice);
+        layout_test = (LinearLayout) findViewById(R.id.layout_test);
 
         //初始化
         TextView text_name = (TextView) findViewById(R.id.text_name);
@@ -73,7 +74,17 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(MainActivity.this, PreparePracticeActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChooseStageActivity.class);
+                startActivity(intent);
+            }
+        });
+        layout_test.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(MainActivity.this, ChooseStageActivity.class);
+                intent.putExtra("type", "自测");
                 startActivity(intent);
             }
         });

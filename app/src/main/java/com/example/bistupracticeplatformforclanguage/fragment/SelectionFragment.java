@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.bistupracticeplatformforclanguage.CustomActivity;
 import com.example.bistupracticeplatformforclanguage.PracticeActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuestion;
@@ -21,12 +22,12 @@ import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuesti
 public class SelectionFragment extends Fragment implements CompoundButton.OnCheckedChangeListener
 {
     private MultipleChoiceQuestion multipleChoiceQuestion;
-    private PracticeActivity practiceActivity;
+    private CustomActivity practiceActivity;
 
     private CheckBox check_selectionA, check_selectionB, check_selectionC, check_selectionD;
     private TextView text_selectionA, text_selectionB, text_selectionC, text_selectionD;
 
-    public SelectionFragment(MultipleChoiceQuestion multipleChoiceQuestion, PracticeActivity practiceActivity)
+    public SelectionFragment(MultipleChoiceQuestion multipleChoiceQuestion, CustomActivity practiceActivity)
     {
         super();
         this.multipleChoiceQuestion = multipleChoiceQuestion;
