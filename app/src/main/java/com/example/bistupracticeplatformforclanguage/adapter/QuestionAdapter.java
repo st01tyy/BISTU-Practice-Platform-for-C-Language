@@ -7,10 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bistupracticeplatformforclanguage.ChooseStageActivity;
+import com.example.bistupracticeplatformforclanguage.PreparePracticeActivity;
 import com.example.bistupracticeplatformforclanguage.PracticeActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuestion;
@@ -22,10 +21,10 @@ import java.util.List;
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder>
 {
     private List<Object> list;
-    private ChooseStageActivity activity;
+    private PreparePracticeActivity activity;
     private String stage;
 
-    public QuestionAdapter(List<Object> list, ChooseStageActivity activity, String stage) {
+    public QuestionAdapter(List<Object> list, PreparePracticeActivity activity, String stage) {
         this.list = list;
         this.activity = activity;
         this.stage = stage;

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.litepal.LitePal;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -118,7 +121,18 @@ public class UpdateTask extends AsyncTask<List<QuestionPrototype>, Integer, Bool
     {
         progressDialog.dismiss();
         if(aBoolean)
+        {
             Toast.makeText(mainActivity, "更新成功", Toast.LENGTH_LONG).show();
+            File file = new File(Environment.getExternalStorageDirectory().getPath() + "/c_practice/1.txt");
+            if(!file.exists())  //若没有更新题库记录，则创建记录
+            {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         else
             Toast.makeText(mainActivity, "更新失败", Toast.LENGTH_LONG).show();
     }

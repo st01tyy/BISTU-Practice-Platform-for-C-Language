@@ -64,6 +64,12 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
+    <!-- 自测结果页面底层布局 -->
+    <style name="TestFinishActivityRootLayout" parent="RootLayout">
+        <item name="android:gravity">left|top</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
     <!-- 主页面标题布局 -->
     <style name="MainActivityTitleLayout">
         <item name="android:layout_width">match_parent</item>

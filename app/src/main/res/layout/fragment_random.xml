@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MainActivityRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/RegularFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:text="选择题目范围" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_pretest_random"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|bottom">
+
+        <Button
+            android:id="@+id/btn_random_start_test"
+            style="@style/RegularFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始测试"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="5px"
+            android:background="@drawable/green_round_corner_label"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestFinishActivity"
+    style="@style/TestFinishActivityRootLayout">
+
+    <LinearLayout
+        android:layout_marginBottom="10px"
+        style="@style/MainActivityTitleLayout" >
+
+        <Button
+            android:background="@mipmap/pic_back"
+            android:id="@+id/btn_back"
+            android:layout_marginRight="10px"
+            style="@style/IconImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_title"
+            android:text="自测结果"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            style="@style/TitleFont" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical"
+        android:layout_marginTop="10px">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="阶段一自测"
+            android:gravity="center_horizontal"
+            android:background="@drawable/title_stroke"
+            android:paddingBottom="10px"
+            android:layout_marginBottom="10pt"
+            style="@style/RegularFont" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left|center_vertical"
+            android:layout_marginBottom="10px">
+
+            <ImageView
+                android:layout_width="12pt"
+                android:layout_height="12pt"
+                android:src="@mipmap/pic_knowledge"
+                android:layout_marginRight="5px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="知识点："
+                android:layout_marginRight="5px"
+                style="@style/RegularFont" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:itemCount="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left|center_vertical"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="10px">
+
+            <ImageView
+                android:layout_width="11pt"
+                android:layout_height="11pt"
+                android:src="@mipmap/pic_correct"
+                android:layout_marginRight="5px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正确率："
+                android:layout_marginRight="5px"
+                style="@style/RegularFont" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:background="@drawable/green_round_corner_label"
+                style="@style/RegularFont" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="10px">
+
+            <ImageView
+                android:layout_width="12pt"
+                android:layout_height="12pt"
+                android:src="@mipmap/pic_wrong"
+                android:layout_marginRight="5px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的错题"
+                android:layout_marginRight="5px"
+                style="@style/RegularFont" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(3)"
+                style="@style/RegularFont" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加至错题本"
+                    android:textColor="@color/white"
+                    android:background="@drawable/blue_round_corner_label"
+                    style="@style/RegularFont" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="14.5pt" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|bottom"
+        android:layout_marginBottom="5px">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:background="@drawable/green_round_corner_label"
+            android:layout_marginBottom="5px"
+            style="@style/RegularFont" />
+
+    </LinearLayout>
+
+</LinearLayout>

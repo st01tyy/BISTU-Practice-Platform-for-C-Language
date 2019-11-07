@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(MainActivity.this, ChooseStageActivity.class);
+                Intent intent = new Intent(MainActivity.this, PreparePracticeActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,22 +83,17 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this, ChooseStageActivity.class);
-                intent.putExtra("type", "自测");
+                Intent intent = new Intent(MainActivity.this, PrepareTestActivity.class);
                 startActivity(intent);
             }
         });
 
+        //判断本地有无题库
         File file = new File(Environment.getExternalStorageDirectory().getPath() + "/c_practice/1.txt");
-        if(!file.exists())
+        if(!file.exists())  //无题库，自动开始更新
         {
             DownloadTask downloadTask = new DownloadTask(MainActivity.this);
             downloadTask.execute();
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -120,7 +115,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onClick(DialogInterface dialog, int which)
                     {
-
+                        return;
                     }
                 }).show();
     }

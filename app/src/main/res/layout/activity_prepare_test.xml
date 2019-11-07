@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/MainActivityRootLayout"
+    tools:context=".PrepareTestActivity">
+
+    <LinearLayout
+        android:layout_marginBottom="10px"
+        style="@style/MainActivityTitleLayout" >
+
+        <Button
+            android:background="@mipmap/pic_back"
+            android:id="@+id/btn_back"
+            android:layout_marginRight="10px"
+            style="@style/IconImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择自测类型"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            style="@style/TitleFont" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px">
+
+        <CheckBox
+            android:id="@+id/check_random"
+            style="@style/RegularFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="随机测试" />
+
+        <CheckBox
+            android:id="@+id/check_stage"
+            style="@style/RegularFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="阶段测试" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_pretest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10px">
+
+    </FrameLayout>
+
+</LinearLayout>

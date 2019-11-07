@@ -1,33 +1,30 @@
 package com.example.bistupracticeplatformforclanguage.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.bistupracticeplatformforclanguage.CustomActivity;
-import com.example.bistupracticeplatformforclanguage.PracticeActivity;
+import com.example.bistupracticeplatformforclanguage.AnswerQuestionActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuestion;
 
 public class SelectionFragment extends Fragment implements CompoundButton.OnCheckedChangeListener
 {
     private MultipleChoiceQuestion multipleChoiceQuestion;
-    private CustomActivity practiceActivity;
+    private AnswerQuestionActivity practiceActivity;
 
     private CheckBox check_selectionA, check_selectionB, check_selectionC, check_selectionD;
     private TextView text_selectionA, text_selectionB, text_selectionC, text_selectionD;
 
-    public SelectionFragment(MultipleChoiceQuestion multipleChoiceQuestion, CustomActivity practiceActivity)
+    public SelectionFragment(MultipleChoiceQuestion multipleChoiceQuestion, AnswerQuestionActivity practiceActivity)
     {
         super();
         this.multipleChoiceQuestion = multipleChoiceQuestion;

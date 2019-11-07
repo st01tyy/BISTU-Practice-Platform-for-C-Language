@@ -1,6 +1,5 @@
 package com.example.bistupracticeplatformforclanguage;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,7 +20,7 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PracticeActivity extends CustomActivity
+public class PracticeActivity extends AnswerQuestionActivity
 {
     private String stage;
     private String answer = null;

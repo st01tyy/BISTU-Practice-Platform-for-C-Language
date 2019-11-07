@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChooseStageActivity" />
+        <activity android:name=".PrepareTestActivity"></activity>
+        <activity android:name=".TestFinishActivity" />
+        <activity android:name=".SelfTestActivity" />
+        <activity android:name=".PreparePracticeActivity" />
         <activity android:name=".PracticeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
