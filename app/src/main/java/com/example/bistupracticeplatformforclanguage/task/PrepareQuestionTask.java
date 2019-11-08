@@ -48,7 +48,17 @@ public class PrepareQuestionTask extends AsyncTask<Void, Integer, List<Object>>
             List<Object> questionList = new ArrayList<>();
             if(type == Type.RANDOM)
             {
+                List<Object> totalQuestion = new ArrayList<>();
+                for(String stage : stageList)
+                {
+                    List<Object> temp = Function.findQuestionByStage(stage);
+                    for(Object o : temp)
+                    {
+                        totalQuestion.add(o);
+                    }
+                }
                 return null;
+
             }
             else
             {

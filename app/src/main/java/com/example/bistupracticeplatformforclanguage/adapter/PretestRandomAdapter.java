@@ -21,9 +21,16 @@ public class PretestRandomAdapter extends RecyclerView.Adapter<PretestRandomAdap
 
     private List<String> stageList; //阶段名称列表
 
+    private boolean[] selection;
+
     public PretestRandomAdapter(List<String> stageList)    //构造函数，传入阶段名称列表
     {
         this.stageList = stageList;
+        selection = new boolean[stageList.size()];
+        for(int i = 0; i < selection.length; i++)
+        {
+            selection[i] = false;
+        }
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder
@@ -53,7 +60,7 @@ public class PretestRandomAdapter extends RecyclerView.Adapter<PretestRandomAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position)  //设置元素控件
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position)  //设置元素控件
     {
         CheckBox check_itemRandom = holder.check_itemRandom;
         check_itemRandom.setText(stageList.get(position));  //设置复选框的阶段名
@@ -64,11 +71,11 @@ public class PretestRandomAdapter extends RecyclerView.Adapter<PretestRandomAdap
             {
                 if(b)
                 {
-
+                    selection[position] = true;
                 }
                 else
                 {
-
+                    selection[position] = false;
                 }
             }
         });

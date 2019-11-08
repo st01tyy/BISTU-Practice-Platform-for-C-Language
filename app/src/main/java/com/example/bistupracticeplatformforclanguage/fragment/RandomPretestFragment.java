@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.NumberPicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,7 @@ public class RandomPretestFragment extends Fragment
     private PrepareTestActivity activity;   //测试准备阶段的活动引用，用于设置列表布局和开始答题活动
 
     private RecyclerView pretestRandom; //随机测试的阶段列表，用于选择题目范围
+    private NumberPicker numberPicker;
     private Button btn_randomStartTest; //随机测试开始按钮
 
     public RandomPretestFragment(PrepareTestActivity activity)  //构造函数
@@ -48,6 +50,7 @@ public class RandomPretestFragment extends Fragment
 
         //获取界面控件
         pretestRandom = (RecyclerView) view.findViewById(R.id.list_pretest_random);
+        numberPicker = (NumberPicker) view.findViewById(R.id.numberPicker);
         btn_randomStartTest = (Button) view.findViewById(R.id.btn_random_start_test);
 
         initialize();   //初始化界面
@@ -68,6 +71,10 @@ public class RandomPretestFragment extends Fragment
         pretestRandom.setLayoutManager(manager);
         pretestRandom.setAdapter(adapter);
 
+        numberPicker.setMinValue(10);
+        numberPicker.setMaxValue(20);
+        numberPicker.setValue(10);
+
         btn_randomStartTest.setOnClickListener(new View.OnClickListener()   //开始测试
         {
             @Override
@@ -77,4 +84,10 @@ public class RandomPretestFragment extends Fragment
             }
         });
     }
+
+    private List<Object> getRandomQuestionList(List<String> stageList)
+    {
+        return null;
+    }
+
 }

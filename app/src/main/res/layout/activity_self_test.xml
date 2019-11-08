@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/text_question_activity_title"
+            android:id="@+id/text_testTitle"
             android:text="自测"
             android:layout_marginLeft="10px"
             android:layout_marginRight="10px"
@@ -74,16 +74,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="交卷"
-            android:id="@+id/btn_judge"
+            android:id="@+id/btn_submit"
             android:background="@drawable/green_round_corner"
             android:layout_marginRight="10px"
-            style="@style/RegularFont" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_judge"
-            android:layout_marginLeft="10px"
             style="@style/RegularFont" />
 
     </LinearLayout>

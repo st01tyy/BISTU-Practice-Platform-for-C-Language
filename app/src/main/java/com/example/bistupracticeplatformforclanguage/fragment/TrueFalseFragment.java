@@ -11,17 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.bistupracticeplatformforclanguage.AnswerQuestionActivity;
 import com.example.bistupracticeplatformforclanguage.PracticeActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.module.TrueFalseQuestion;
 
 public class TrueFalseFragment extends Fragment implements CompoundButton.OnCheckedChangeListener
 {
-    private PracticeActivity activity;
+    private AnswerQuestionActivity activity;
 
     private CheckBox check_true, check_false;
 
-    public TrueFalseFragment(PracticeActivity activity)
+    public TrueFalseFragment(AnswerQuestionActivity activity)
     {
         super();
         this.activity = activity;

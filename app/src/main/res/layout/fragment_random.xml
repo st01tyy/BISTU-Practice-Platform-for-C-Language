@@ -17,11 +17,33 @@
         android:id="@+id/list_pretest_random"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="3"
         android:layout_marginTop="10px"
         android:layout_marginBottom="10px">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:gravity="left|center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择题目数量"
+            android:layout_marginRight="5px"
+            style="@style/RegularFont" />
+
+        <com.example.bistupracticeplatformforclanguage.MyNumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberPicker"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
