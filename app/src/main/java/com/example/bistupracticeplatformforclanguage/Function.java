@@ -4,6 +4,9 @@ import android.database.Cursor;
 import android.os.Build;
 import android.util.Log;
 
+import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuestion;
+import com.example.bistupracticeplatformforclanguage.module.TrueFalseQuestion;
+
 import org.litepal.LitePal;
 
 import java.util.ArrayList;
@@ -96,6 +99,36 @@ public class Function
             return 7;
         else
             return 8;
+    }
+
+    public static List<Object> findQuestionByStage(String stage)
+    {
+        List<Object> list = new ArrayList<>();
+
+        //获取选择题题目列表
+        long id = 1;
+        MultipleChoiceQuestion multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+        while(multipleChoiceQuestion != null)
+        {
+            if(multipleChoiceQuestion.getStage().equals(stage))
+                list.add(multipleChoiceQuestion);
+            id++;
+            multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+        }
+
+        //获取判断题列表
+        id = 1;
+        TrueFalseQuestion trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+        while(trueFalseQuestion != null)
+        {
+            if(trueFalseQuestion.getStage().equals(stage))
+                list.add(trueFalseQuestion);
+            id++;
+            trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+        }
+
+        Log.d("PracticeActivity", "题目列表长度：" + Integer.toString(list.size()));
+        return list;
     }
 
 

@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_marginTop="10px"
-    android:layout_marginBottom="10px">
+    android:layout_marginTop="15px"
+    android:layout_marginBottom="15px"
+    android:paddingBottom="10px"
+    android:background="@drawable/title_stroke">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="开始测试"
             android:background="@drawable/green_round_corner_label"
-            android:id="@+id/btn_stage_start_test"
+            android:id="@+id/text_stage_start_test"
             style="@style/RegularFont" />
     </LinearLayout>
 

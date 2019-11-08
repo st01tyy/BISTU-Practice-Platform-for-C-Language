@@ -13,6 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 
 import com.example.bistupracticeplatformforclanguage.fragment.RandomPretestFragment;
+import com.example.bistupracticeplatformforclanguage.fragment.StagePretestFragment;
 
 public class PrepareTestActivity extends AppCompatActivity
 {
@@ -68,6 +69,13 @@ public class PrepareTestActivity extends AppCompatActivity
                     replaceFragment(fragment);  //替换碎片
                     check_stage.setChecked(false);  //取消勾选阶段测试复选框
                 }
+                else    //取消勾选
+                {
+                    if(!check_stage.isChecked())    //两个复选框均没有被勾选
+                    {
+                        replaceFragment(new Fragment());  //删除碎片
+                    }
+                }
             }
         });
 
@@ -78,7 +86,16 @@ public class PrepareTestActivity extends AppCompatActivity
             {
                 if(b)   //勾选复选框
                 {
+                    StagePretestFragment fragment = new StagePretestFragment(PrepareTestActivity.this);
+                    replaceFragment(fragment);
                     check_random.setChecked(false); //取消勾选随机测试复选框
+                }
+                else    //取消勾选
+                {
+                    if(!check_random.isChecked())    //两个复选框均没有被勾选
+                    {
+                        replaceFragment(new Fragment());  //删除碎片
+                    }
                 }
             }
         });

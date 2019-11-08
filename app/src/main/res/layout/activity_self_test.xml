@@ -11,12 +11,6 @@
     <LinearLayout
         style="@style/MainActivityTitleLayout" >
 
-        <Button
-            android:background="@mipmap/pic_back"
-            android:id="@+id/btn_back"
-            android:layout_marginRight="10px"
-            style="@style/IconImage" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -32,6 +32,7 @@ public class RandomPretestFragment extends Fragment
 
     public RandomPretestFragment(PrepareTestActivity activity)  //构造函数
     {
+        super();
         this.activity = activity;
     }
 
