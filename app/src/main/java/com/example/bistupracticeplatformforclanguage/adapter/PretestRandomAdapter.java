@@ -87,4 +87,7 @@ public class PretestRandomAdapter extends RecyclerView.Adapter<PretestRandomAdap
         return stageList.size();
     }
 
+    public boolean[] getSelection() {
+        return selection;
+    }
 }

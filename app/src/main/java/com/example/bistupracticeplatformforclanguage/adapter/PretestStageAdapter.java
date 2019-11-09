@@ -16,6 +16,7 @@ import com.example.bistupracticeplatformforclanguage.Function;
 import com.example.bistupracticeplatformforclanguage.PrepareTestActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.SelfTestActivity;
+import com.example.bistupracticeplatformforclanguage.task.PrepareTestTask;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -72,17 +73,10 @@ public class PretestStageAdapter extends RecyclerView.Adapter<PretestStageAdapte
                             @Override
                             public void onClick(DialogInterface dialog, int which)
                             {
-                                Intent intent = new Intent(activity, SelfTestActivity.class);
-
-                                String title = stageList.get(position) + "自测";
-                                List<String> tStageList = new ArrayList<>();
-                                tStageList.add(stageList.get(position));
-                                List<Object> questionList = Function.findQuestionByStage(stageList.get(position));
-
-                                intent.putExtra("title", title);
-                                intent.putExtra("stageList", (Serializable) tStageList);
-                                intent.putExtra("questionList", (Serializable) questionList);
-                                activity.startActivity(intent);
+                                List<String> selectedStageList = new ArrayList<>();
+                                selectedStageList.add(stageList.get(position));
+                                PrepareTestTask task = new PrepareTestTask(activity, selectedStageList);
+                                task.execute();
                             }
                         })
                         .setNegativeButton("取消", new DialogInterface.OnClickListener()

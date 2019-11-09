@@ -17,7 +17,9 @@ import com.example.bistupracticeplatformforclanguage.Function;
 import com.example.bistupracticeplatformforclanguage.PrepareTestActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.adapter.PretestRandomAdapter;
+import com.example.bistupracticeplatformforclanguage.task.PrepareTestTask;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RandomPretestFragment extends Fragment
@@ -64,7 +66,7 @@ public class RandomPretestFragment extends Fragment
          */
 
         //配置阶段列表
-        List<String> stageList = Function.findStage();  //获取阶段名称列表
+        final List<String> stageList = Function.findStage();  //获取阶段名称列表
         PretestRandomAdapter adapter = new PretestRandomAdapter(stageList); //创建阶段列表的适配器
         LinearLayoutManager manager = new LinearLayoutManager(activity);    //创建线性布局管理
         manager.setOrientation(RecyclerView.VERTICAL);  //设置垂直布局方向
@@ -80,7 +82,16 @@ public class RandomPretestFragment extends Fragment
             @Override
             public void onClick(View view)
             {
-
+                PretestRandomAdapter temp = (PretestRandomAdapter) pretestRandom.getAdapter();
+                boolean[] selection = temp.getSelection();
+                List<String> selectedStageList = new ArrayList<>();
+                for(int i = 0; i < selection.length; i++)
+                {
+                    if(selection[i])
+                        selectedStageList.add(stageList.get(i));
+                }
+                PrepareTestTask task = new PrepareTestTask(activity, selectedStageList, numberPicker.getValue());
+                task.execute();
             }
         });
     }
