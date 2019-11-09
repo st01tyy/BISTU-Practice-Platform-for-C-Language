@@ -44,6 +44,7 @@
             android:background="@drawable/title_stroke"
             android:paddingBottom="10px"
             android:layout_marginBottom="10pt"
+            android:id="@+id/text_testTitle"
             style="@style/RegularFont" />
 
         <LinearLayout
@@ -69,7 +70,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:itemCount="1" />
+                tools:itemCount="1"
+                android:id="@+id/list_knowledge"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -98,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:text="100%"
                 android:background="@drawable/green_round_corner_label"
+                android:id="@+id/text_correctRate"
                 style="@style/RegularFont" />
 
         </LinearLayout>
@@ -127,6 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(3)"
+                android:id="@+id/text_nMistake"
                 style="@style/RegularFont" />
 
             <LinearLayout
@@ -141,6 +146,8 @@
                     android:text="添加至错题本"
                     android:textColor="@color/white"
                     android:background="@drawable/blue_round_corner_label"
+                    android:id="@+id/btn_add"
+                    android:padding="5px"
                     style="@style/RegularFont" />
 
             </LinearLayout>
@@ -152,7 +159,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10px"
             android:layout_marginBottom="10px"
-            android:layout_marginLeft="14.5pt" />
+            android:layout_marginLeft="14.5pt"
+            android:id="@+id/list_mistake"/>
 
     </LinearLayout>
 
@@ -166,9 +174,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="返回"
+            android:text="前往错题本"
             android:background="@drawable/green_round_corner_label"
             android:layout_marginBottom="5px"
+            android:paddingLeft="5px"
+            android:paddingRight="5px"
+            android:id="@+id/btn_goto"
             style="@style/RegularFont" />
 
     </LinearLayout>
