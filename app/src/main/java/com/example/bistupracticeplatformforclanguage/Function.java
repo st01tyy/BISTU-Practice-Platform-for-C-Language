@@ -106,25 +106,17 @@ public class Function
         List<Object> list = new ArrayList<>();
 
         //获取选择题题目列表
-        long id = 1;
-        MultipleChoiceQuestion multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
-        while(multipleChoiceQuestion != null)
+        List<MultipleChoiceQuestion> mList = LitePal.where("stage=?", stage).find(MultipleChoiceQuestion.class);
+        for(MultipleChoiceQuestion m : mList)
         {
-            if(multipleChoiceQuestion.getStage().equals(stage))
-                list.add(multipleChoiceQuestion);
-            id++;
-            multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+            list.add(m);
         }
 
         //获取判断题列表
-        id = 1;
-        TrueFalseQuestion trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
-        while(trueFalseQuestion != null)
+        List<TrueFalseQuestion> tList = LitePal.where("stage=?", stage).find(TrueFalseQuestion.class);
+        for(TrueFalseQuestion t : tList)
         {
-            if(trueFalseQuestion.getStage().equals(stage))
-                list.add(trueFalseQuestion);
-            id++;
-            trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+            list.add(t);
         }
 
         Log.d("PracticeActivity", "题目列表长度：" + Integer.toString(list.size()));
@@ -150,6 +142,4 @@ public class Function
         else
             return "文件读写";
     }
-
-
 }

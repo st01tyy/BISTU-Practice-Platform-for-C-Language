@@ -91,25 +91,35 @@ public class PracticeStageAdapter extends RecyclerView.Adapter<PracticeStageAdap
                     List<Object> questionList = new ArrayList<>();
 
                     //获取选择题
-                    long id = 1;
-                    MultipleChoiceQuestion multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
-                    while(multipleChoiceQuestion != null)
+//                    long id = 1;
+//                    MultipleChoiceQuestion multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+//                    while(multipleChoiceQuestion != null)
+//                    {
+//                        if(multipleChoiceQuestion.getStage().equals(stage.getName()))
+//                            questionList.add(multipleChoiceQuestion);
+//                        id++;
+//                        multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+//                    }
+                    List<MultipleChoiceQuestion> mList = LitePal.where("stage=?", stage.getName()).find(MultipleChoiceQuestion.class);
+                    for(MultipleChoiceQuestion m : mList)
                     {
-                        if(multipleChoiceQuestion.getStage().equals(stage.getName()))
-                            questionList.add(multipleChoiceQuestion);
-                        id++;
-                        multipleChoiceQuestion = LitePal.find(MultipleChoiceQuestion.class, id);
+                        questionList.add(m);
                     }
 
                     //获取判断题
-                    id = 1;
-                    TrueFalseQuestion trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
-                    while(trueFalseQuestion != null)
+//                    id = 1;
+//                    TrueFalseQuestion trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+//                    while(trueFalseQuestion != null)
+//                    {
+//                        if(trueFalseQuestion.getStage().equals(stage.getName()))
+//                            questionList.add(trueFalseQuestion);
+//                        id++;
+//                        trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+//                    }
+                    List<TrueFalseQuestion> tList = LitePal.where("stage=?", stage.getName()).find(TrueFalseQuestion.class);
+                    for(TrueFalseQuestion t : tList)
                     {
-                        if(trueFalseQuestion.getStage().equals(stage.getName()))
-                            questionList.add(trueFalseQuestion);
-                        id++;
-                        trueFalseQuestion = LitePal.find(TrueFalseQuestion.class, id);
+                        questionList.add(t);
                     }
 
                     Log.d("PracticeStageAdapter", Integer.toString(questionList.size()));

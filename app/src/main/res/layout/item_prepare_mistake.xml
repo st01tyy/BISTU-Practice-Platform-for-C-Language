@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginTop="10px"
+    android:layout_marginBottom="10px"
+    android:paddingBottom="10px"
+    android:background="@drawable/title_stroke">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1."
+            android:id="@+id/text_item_questionId"
+            android:layout_marginRight="10px"
+            style="@style/RegularFont" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="descriptionaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:id="@+id/text_item_description"
+            android:singleLine="true"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            style="@style/RegularFont" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical">
+
+        <Button
+            android:layout_width="14pt"
+            android:layout_height="14pt"
+            android:id="@+id/btn_delete"
+            android:background="@mipmap/pic_delete" />
+    </LinearLayout>
+
+</LinearLayout>

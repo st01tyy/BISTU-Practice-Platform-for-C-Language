@@ -1,6 +1,7 @@
 package com.example.bistupracticeplatformforclanguage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity
     private Button btn_exit;
     private LinearLayout layout_practice;
     private LinearLayout layout_test;
+    private LinearLayout layout_mistake_book;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity
         btn_exit = (Button) findViewById(R.id.btn_exit);
         layout_practice = (LinearLayout) findViewById(R.id.layout_practice);
         layout_test = (LinearLayout) findViewById(R.id.layout_test);
+        layout_mistake_book = (LinearLayout) findViewById(R.id.layout_mistake_book);
 
         //初始化
         TextView text_name = (TextView) findViewById(R.id.text_name);
@@ -84,6 +87,15 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent intent = new Intent(MainActivity.this, PrepareTestActivity.class);
+                startActivity(intent);
+            }
+        });
+        layout_mistake_book.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, PrepareMistakeBookActivity.class);
                 startActivity(intent);
             }
         });
