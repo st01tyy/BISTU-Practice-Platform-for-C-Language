@@ -148,7 +148,7 @@ public class PrepareTestTask extends AsyncTask<Void, Integer, List<Object>>
             intent.putExtra("stageList", (Serializable) tStageList);
             intent.putExtra("questionList", (Serializable) objects);
             activity.startActivity(intent);
-            //activity.finish();
+            activity.finish();
         }
     }
 

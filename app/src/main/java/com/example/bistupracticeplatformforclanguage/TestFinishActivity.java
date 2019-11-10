@@ -120,6 +120,17 @@ public class TestFinishActivity extends AppCompatActivity
         FinishTestMistakeAdapter anotherAdapter = new FinishTestMistakeAdapter(mistakeList);
         list_mistake.setLayoutManager(anotherLayoutManager);
         list_mistake.setAdapter(anotherAdapter);
+
+        btn_goto.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(TestFinishActivity.this, PrepareMistakeBookActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     public void setAdded(boolean val)
