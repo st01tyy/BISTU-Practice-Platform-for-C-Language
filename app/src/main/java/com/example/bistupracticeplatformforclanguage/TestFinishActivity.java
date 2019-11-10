@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bistupracticeplatformforclanguage.adapter.FinishTestKnowledgeAdapter;
 import com.example.bistupracticeplatformforclanguage.adapter.FinishTestMistakeAdapter;
+import com.example.bistupracticeplatformforclanguage.task.MistakeImportTask;
 
 import java.util.List;
 
@@ -32,6 +34,8 @@ public class TestFinishActivity extends AppCompatActivity
     private TextView text_add;
     private RecyclerView list_mistake;
     private Button btn_goto;
+
+    private boolean isAdded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -96,10 +100,31 @@ public class TestFinishActivity extends AppCompatActivity
 
         text_nMistake.setText("(" + Integer.toString(mistakeList.size()) + ")");
 
+        text_add.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(isAdded)
+                {
+                    Toast.makeText(TestFinishActivity.this, "已添加", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                MistakeImportTask task = new MistakeImportTask(TestFinishActivity.this, mistakeList);
+                task.execute();
+            }
+        });
+
         LinearLayoutManager anotherLayoutManager = new LinearLayoutManager(this);
         anotherLayoutManager.setOrientation(RecyclerView.VERTICAL);
         FinishTestMistakeAdapter anotherAdapter = new FinishTestMistakeAdapter(mistakeList);
         list_mistake.setLayoutManager(anotherLayoutManager);
         list_mistake.setAdapter(anotherAdapter);
     }
+
+    public void setAdded(boolean val)
+    {
+        this.isAdded = val;
+    }
+
 }
