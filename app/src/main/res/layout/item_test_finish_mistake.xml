@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginTop="10px"
+    android:layout_marginBottom="10px">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1."
+            android:id="@+id/text_item_questionId"
+            android:layout_marginRight="10px"
+            style="@style/SmallFont" />
+
+        <TextView
+            android:layout_width="80pt"
+            android:layout_height="wrap_content"
+            android:text="descriptionaaaaaaaaaaaaaaaaaa"
+            android:id="@+id/text_item_description"
+            android:singleLine="true"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            style="@style/SmallFont" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:padding="5px"
+            android:text="C语言基本常识"
+            android:id="@+id/text_item_knowledge"
+            android:background="@drawable/green_round_corner_label"
+            style="@style/SmallFont" />
+    </LinearLayout>
+
+</LinearLayout>

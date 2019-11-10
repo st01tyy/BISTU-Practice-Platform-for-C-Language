@@ -47,6 +47,11 @@ public class PracticeActivity extends AnswerQuestionActivity
         answer = ans;
     }
 
+    @Override
+    public String getSelectedAnswers() {
+        return null;
+    }
+
     private void initialize()   //初始化数据和界面
     {
         //设置返回键事件反应器

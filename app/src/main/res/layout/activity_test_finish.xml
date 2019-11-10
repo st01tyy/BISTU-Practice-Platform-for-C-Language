@@ -102,6 +102,7 @@
                 android:text="100%"
                 android:background="@drawable/green_round_corner_label"
                 android:id="@+id/text_correctRate"
+                android:padding="5px"
                 style="@style/RegularFont" />
 
         </LinearLayout>
@@ -155,11 +156,10 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10px"
             android:layout_marginBottom="10px"
-            android:layout_marginLeft="14.5pt"
             android:id="@+id/list_mistake"/>
 
     </LinearLayout>

@@ -6,11 +6,13 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.bistupracticeplatformforclanguage.Function;
 import com.example.bistupracticeplatformforclanguage.SelfTestActivity;
 import com.example.bistupracticeplatformforclanguage.TestFinishActivity;
 import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuestion;
 import com.example.bistupracticeplatformforclanguage.module.TrueFalseQuestion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +73,7 @@ public class JudgeTestTask extends AsyncTask<Void, Integer, List<Object>>
            }
            for(String str : stageList)
            {
-
+                knowledgeList.add(Function.getKnowledge(str));
            }
            return mistakeList;
        }
@@ -92,8 +94,16 @@ public class JudgeTestTask extends AsyncTask<Void, Integer, List<Object>>
             Toast.makeText(activity, "判题时发生错误", Toast.LENGTH_LONG);
         else
         {
+            int correctRate = (int)((questionList.size() - objects.size()) / (double)questionList.size() * 100);
+            Log.d("JudgeTestTask", "correct rate is " + Integer.toString(correctRate));
+
             Intent intent = new Intent(activity, TestFinishActivity.class);
             intent.putExtra("title", title);
+            intent.putExtra("knowledgeList", (Serializable) knowledgeList);
+            intent.putExtra("correctRate", correctRate);
+            intent.putExtra("mistakeList", (Serializable) objects);
+            activity.startActivity(intent);
+            activity.finish();
         }
     }
 }

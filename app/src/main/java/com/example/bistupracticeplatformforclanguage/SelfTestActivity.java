@@ -17,6 +17,7 @@ import com.example.bistupracticeplatformforclanguage.fragment.SelectionFragment;
 import com.example.bistupracticeplatformforclanguage.fragment.TrueFalseFragment;
 import com.example.bistupracticeplatformforclanguage.module.MultipleChoiceQuestion;
 import com.example.bistupracticeplatformforclanguage.module.TrueFalseQuestion;
+import com.example.bistupracticeplatformforclanguage.task.JudgeTestTask;
 
 import java.util.List;
 
@@ -73,10 +74,33 @@ public class SelfTestActivity extends AnswerQuestionActivity
             @Override
             public void onClick(View v)
             {
-                for(int i= 0; i < questionList.size(); i++)
+                for(String str : ans)
                 {
-                    Log.d("SelfTestActivity", ans[i]);
+                    if(str == null)
+                    {
+                        new AlertDialog.Builder(SelfTestActivity.this).setTitle("你还要未完成的题目，确定提交吗？")
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener()
+                                {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which)
+                                    {
+                                        JudgeTestTask task = new JudgeTestTask(SelfTestActivity.this, title, stageList, questionList, ans);
+                                        task.execute();
+                                    }
+                                })
+                                .setNegativeButton("继续作答", new DialogInterface.OnClickListener()
+                                {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which)
+                                    {
+                                        return;
+                                    }
+                                }).show();
+                        return;
+                    }
                 }
+                JudgeTestTask task = new JudgeTestTask(SelfTestActivity.this, title, stageList, questionList, ans);
+                task.execute();
             }
         });
 
@@ -132,12 +156,21 @@ public class SelfTestActivity extends AnswerQuestionActivity
     @Override
     public void updateAnswer(String ans)
     {
-        StringBuffer sb = new StringBuffer();
-        for(int i = 0; i < ans.length(); i++)
+        if(ans != null)
         {
-            sb.append(ans.charAt(i));
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < ans.length(); i++) {
+                sb.append(ans.charAt(i));
+            }
+            this.ans[position] = sb.toString();
         }
-        this.ans[position] = sb.toString();
+        else
+            this.ans[position] = null;
+    }
+
+    @Override
+    public String getSelectedAnswers() {
+        return ans[position];
     }
 
     @Override

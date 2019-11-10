@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_marginLeft="10px"
+    android:layout_marginRight="10px"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_item_knowledge"
+        android:text="选择结构"
+        android:background="@drawable/green_round_corner_label"
+        android:padding="5px"
+        style="@style/RegularFont" />
+
+</LinearLayout>

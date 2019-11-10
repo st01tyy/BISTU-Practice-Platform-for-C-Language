@@ -1,13 +1,18 @@
 package com.example.bistupracticeplatformforclanguage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.bistupracticeplatformforclanguage.adapter.FinishTestKnowledgeAdapter;
+import com.example.bistupracticeplatformforclanguage.adapter.FinishTestMistakeAdapter;
 
 import java.util.List;
 
@@ -63,5 +68,38 @@ public class TestFinishActivity extends AppCompatActivity
                 finish();
             }
         });
+
+        text_testTitle.setText(title);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        FinishTestKnowledgeAdapter adapter = new FinishTestKnowledgeAdapter(knowledgeList);
+        list_knowledge.setLayoutManager(layoutManager);
+        list_knowledge.setAdapter(adapter);
+
+        if(correctRate >= 85)
+        {
+            text_correctRate.setBackgroundResource(R.drawable.green_round_corner_label);
+            text_correctRate.setTextColor(getResources().getColor(R.color.black));
+        }
+        else if(correctRate >= 60)
+        {
+            text_correctRate.setBackgroundResource(R.drawable.blue_round_corner_label);
+            text_correctRate.setTextColor(getResources().getColor(R.color.white));
+        }
+        else
+        {
+            text_correctRate.setBackgroundResource(R.drawable.red_round_corner_label);
+            text_correctRate.setTextColor(getResources().getColor(R.color.white));
+        }
+        text_correctRate.setText(Integer.toString(correctRate) + "%");
+
+        text_nMistake.setText("(" + Integer.toString(mistakeList.size()) + ")");
+
+        LinearLayoutManager anotherLayoutManager = new LinearLayoutManager(this);
+        anotherLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        FinishTestMistakeAdapter anotherAdapter = new FinishTestMistakeAdapter(mistakeList);
+        list_mistake.setLayoutManager(anotherLayoutManager);
+        list_mistake.setAdapter(anotherAdapter);
     }
 }

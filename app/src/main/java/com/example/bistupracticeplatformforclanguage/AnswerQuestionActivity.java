@@ -5,4 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 abstract public class AnswerQuestionActivity extends AppCompatActivity
 {
     abstract public void updateAnswer(String ans);
+
+    abstract public String getSelectedAnswers();
 }

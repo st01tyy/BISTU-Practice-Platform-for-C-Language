@@ -36,6 +36,15 @@ public class TrueFalseFragment extends Fragment implements CompoundButton.OnChec
         check_true = (CheckBox) view.findViewById(R.id.check_true);
         check_false = (CheckBox) view.findViewById(R.id.check_false);
 
+       String ans = activity.getSelectedAnswers();
+       if(ans != null)
+       {
+           if(ans.equals("0"))
+               check_false.setChecked(true);
+           else
+               check_true.setChecked(true);
+       }
+
         check_true.setOnCheckedChangeListener(this);
         check_false.setOnCheckedChangeListener(this);
         return view;

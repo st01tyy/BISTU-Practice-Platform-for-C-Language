@@ -54,6 +54,20 @@ public class SelectionFragment extends Fragment implements CompoundButton.OnChec
         text_selectionD = (TextView) view.findViewById(R.id.text_selection_d);
 
         //设置控件
+
+        String ans = practiceActivity.getSelectedAnswers();
+        if(ans != null)
+        {
+            if(ans.equals("A"))
+                check_selectionA.setChecked(true);
+            else if(ans.equals("B"))
+                check_selectionB.setChecked(true);
+            else if(ans.equals("C"))
+                check_selectionC.setChecked(true);
+            else
+                check_selectionD.setChecked(true);
+        }
+
         check_selectionA.setOnCheckedChangeListener(this);
         check_selectionB.setOnCheckedChangeListener(this);
         check_selectionC.setOnCheckedChangeListener(this);

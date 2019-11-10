@@ -131,5 +131,25 @@ public class Function
         return list;
     }
 
+    public static String getKnowledge(String stage)
+    {
+        if(stage.equals("阶段一"))
+            return "C语言基本常识";
+        else if(stage.equals("阶段二"))
+            return "选择结构";
+        else if(stage.equals("阶段三"))
+            return "循环结构";
+        else if(stage.equals("阶段四"))
+            return "数组";
+        else if(stage.equals("阶段五"))
+            return "函数";
+        else if(stage.equals("阶段六"))
+            return "指针";
+        else if(stage.equals("阶段七"))
+            return "结构体";
+        else
+            return "文件读写";
+    }
+
 
 }
