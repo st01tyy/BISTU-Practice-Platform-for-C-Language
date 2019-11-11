@@ -1,5 +1,6 @@
 package com.example.bistupracticeplatformforclanguage.adapter;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bistupracticeplatformforclanguage.MistakeBookActivity;
 import com.example.bistupracticeplatformforclanguage.PrepareMistakeBookActivity;
 import com.example.bistupracticeplatformforclanguage.R;
 import com.example.bistupracticeplatformforclanguage.module.Mistake;
@@ -19,6 +21,7 @@ import com.example.bistupracticeplatformforclanguage.module.TrueFalseQuestion;
 
 import org.litepal.LitePal;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class PrepareMistakeAdapter extends RecyclerView.Adapter<PrepareMistakeAdapter.ViewHolder>
@@ -73,6 +76,18 @@ public class PrepareMistakeAdapter extends RecyclerView.Adapter<PrepareMistakeAd
             holder.text_questionId.setText(Integer.toString(question.getQuestionId()));
             holder.text_description.setText(question.getDescription());
         }
+
+        holder.text_description.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(activity, MistakeBookActivity.class);
+                intent.putExtra("mistakeList", (Serializable) mistakeList);
+                intent.putExtra("position", position);
+                activity.startActivity(intent);
+            }
+        });
 
         holder.btn_delete.setOnClickListener(new View.OnClickListener()
         {

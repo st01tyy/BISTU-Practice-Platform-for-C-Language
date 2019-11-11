@@ -37,6 +37,13 @@ public class PrepareMistakeBookActivity extends AppCompatActivity
         initialize();
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        refreshAdapter();
+    }
+
     private void initialize()
     {
         btn_back.setOnClickListener(new View.OnClickListener()
@@ -48,7 +55,7 @@ public class PrepareMistakeBookActivity extends AppCompatActivity
             }
         });
 
-        refreshAdapter();
+        //refreshAdapter();
     }
 
     public void refreshAdapter()

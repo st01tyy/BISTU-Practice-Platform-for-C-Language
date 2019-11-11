@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PrepareMistakeBookActivity"></activity>
+        <activity android:name=".MistakeBookActivity"></activity>
+        <activity android:name=".PrepareMistakeBookActivity" />
         <activity android:name=".PrepareTestActivity" />
         <activity android:name=".TestFinishActivity" />
         <activity android:name=".SelfTestActivity" />
